@@ -2,6 +2,8 @@
 
 In this project the concept of ArrayList in Java was 
 practised by building a classroom simulation. 
+Meanwhile, the class of School uses a Hashmap instead 
+of an ArrayList. 
 
 ---
 

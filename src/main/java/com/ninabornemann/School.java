@@ -1,30 +1,37 @@
 package com.ninabornemann;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class School {
 
     private List<Student> studentsAtSchool = new ArrayList<>();
 
+    private Map<Integer, Student> students = new HashMap<>();
+
+    private int nextId = 1;
+
     public void addStudent(Student s) {
-        studentsAtSchool.add(s);
+        students.put(nextId, s);
+        nextId++;
     }
 
-    public void removeStudent(Student s) {
-        studentsAtSchool.remove(s);
+    public void removeStudent(int key) {
+        students.remove(key);
     }
 
     public void printAllStudents() {
-        for (Student s : studentsAtSchool) {
+        for (Map.Entry<Integer, Student> s : students.entrySet()) {
             System.out.println(s);
         }
     }
 
     public void getSeminarsByStudentId(int id) {
-        for (Student s : studentsAtSchool) {
-            if ( id == s.getStudentId()) {
-                s.printSeminars();
+        for (Map.Entry<Integer, Student> s : students.entrySet()) {
+            if ( id == s.getValue().getStudentId()) {
+                s.getValue().printSeminars();
                 return;
             }
         }
@@ -32,8 +39,8 @@ public class School {
     }
 
     public void getStudentById(int id) {
-        for (Student s : studentsAtSchool) {
-            if ( id == s.getStudentId()) {
+        for (Map.Entry<Integer, Student> s : students.entrySet()) {
+            if ( id == s.getValue().getStudentId()) {
                 System.out.println("The student with this Id is: " + s + " !");
                 return;
             }

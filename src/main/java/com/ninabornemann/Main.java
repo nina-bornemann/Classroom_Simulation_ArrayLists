@@ -25,7 +25,7 @@ public class Main {
         academy.getStudentById(261);
         academy.getStudentById(678);
 
-        academy.removeStudent(student2);
+        academy.removeStudent(2);
         academy.printAllStudents();
 
         Seminar s001 = new Seminar("Biology", "Mrs. Bio", 35);
